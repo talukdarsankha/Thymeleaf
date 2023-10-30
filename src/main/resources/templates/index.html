@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+<body>
+	
+	<div th:replace="~{header::myheader}"></div>
+	<hr/>
+	<h1>Index Page</h1>
+	<p data-th-text="#{youtube.name}"></p>
+	<p th:text="#{youtube.name}"></p>
+	<p th:utext="#{youtube.name}"></p>
+	<h1 th:text="#{youtube.name}"></h1>
+	<p th:utext="#{youtube.name}"></p>
+	<p>Today is : [[${today}]]</p>
+	<h1 >[[${today}]]</h1>
+	<hr/>
+	<p>[[${today}]]</p>
+	<p th:text="${today}"></p>
+	<p th:text="${user1.id}" ></p>
+	<p th:text="${user1.name}" ></p>
+	<p  >[[${user1.address}]]</p>
+	
+	<hr/>
+	
+	<div th:object="${user1}">
+		<h5>ID [[*{id}]]</h5>
+		<h5>Name [[*{name}]]</h5>
+		<h5> [[*{address}]]</h5>
+	</div>
+	<div th:object="${user1}">
+		<p>[[*{name}]]</p><p>[[*{address}]]</p>
+		
+	</div>
+	<a th:href="@{profile}"> go Profile</a>
+	<a th:href="@{'profile/'+${user1.id}}"> custom link</a>
+	<a th:href="@{'profile/'+${user1.name}}">custom link</a>
+	
+	<hr/>
+	
+	<div th:replace="~{footer::footer}"></div>
+	
+	<a th:href="@{aboutPage}">About </a>
+	
+	<a th:href="@{page1}">page1</a>
+	<a th:href="@{page2}">page2</a>
+	<a th:href="@{Base}">Base </a>
+	
+	
+</body>
+</html>
